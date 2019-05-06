@@ -1,0 +1,46 @@
+﻿@model IEnumerable<sirena.ViewModels.CategoryVM>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDisabled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDisabled)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { item.Id }, new { @class = "btn btn-warning", @style = "margin: 5px 5px 5px 5px" })
+                    @*@Html.ActionLink("Details", "Details", new { item.Id }, new { @class = "btn btn-primary", @style = "margin: 5px 5px 5px 5px" })*@
+                    @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                    <a id="@item.Id" class="btn btn-danger delete-prompt" style="margin-top: 5px;" href="/admin/@StringHelpers.CutController(nameof(CategoryController))/@nameof(CategoryController.Delete)/">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Modal.DeleteModal()

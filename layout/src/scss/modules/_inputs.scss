@@ -1,0 +1,19 @@
+input, button{
+    appearance: none;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+}
+
+button{
+	cursor: pointer;
+}
+
+input{
+    color: inherit;
+    font-family: inherit;
+    &::placeholder{
+
+    }
+}

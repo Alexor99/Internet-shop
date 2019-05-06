@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Siren</title>
+    <script src="src/js/common.js"></script>
+
+    <style type="text/css">
+        /* .loader {
+            position: fixed;
+            background: radial-gradient(ellipse at center, rgba(245,247,250,1) 0%, rgba(230,233,237,1) 100%);
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            pointer-events: none;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .loader-inner {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            bottom: 0;
+            background-repeat: repeat-x;
+            background-position: 0;
+            animation: loader-waves 4s infinite linear;
+        }
+
+        .loader-background {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            border-radius: 50px;
+            overflow: hidden;
+            z-index: 1;
+            transition: transform .2s ease-out;
+            transform: scale3d(0, 0, 0);
+            animation: loader-in .45s ease .25s 1 normal forwards;
+        }
+        @keyframes  loader-waves {
+            100% {
+                background-position: -538px 0px;
+            }
+        }
+
+        @keyframes  loader-in {
+            0% {
+                transform: scale3d(0.7, 0.7, 0.7);
+            }
+
+            50% {
+                transform: scale3d(1.2, 1.2, 1.2);
+            }
+
+            80% {
+                transform: scale3d(0.95, 0.95, 0.95);
+            }
+
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+        } */
+    </style>
+</head>
+<body class="main-page">
+    <div class="loader">
+    <div class="loader-background">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="content">
+            <a href="/" class="logo"><img src="assets/img/siren-logotip.svg" alt="siren"></a>
+            <nav>
+                <a href="/" data-hover="ГЛАВНАЯ"><span>ГЛАВНАЯ</span></a>
+                <a href="catalog.html" data-hover="КАТАЛОГ ТОВАРОВ"><span>КАТАЛОГ ТОВАРОВ</span></a>
+                <a href="contacts.html" data-hover="КОНТАКТЫ"><span>КОНТАКТЫ</span></a>
+            </nav>
+
+            <div class="cart_and_burger">
+
+                <div class="burger-menu">
+                    <div class="burger"><img src="assets/img/burger.png" alt=""></div>
+                    <div class="burger_popup">
+                        <a href="/" data-hover="ГЛАВНАЯ"><span>ГЛАВНАЯ</span></a>
+                        <a href="catalog.html" data-hover="КАТАЛОГ ТОВАРОВ"><span>КАТАЛОГ ТОВАРОВ</span></a>
+                        <a href="contacts.html" data-hover="КОНТАКТЫ"><span>КОНТАКТЫ</span></a>
+                    </div>
+                </div>
+
+                <div class="cart">
+                    <div class="num_goods">
+                        <span>0</span>
+                    </div>
+
+                    <div class="icon"><img src="assets/img/cart.png" alt=""></div>
+                    <div class="cart_popup">
+                        <div class="state">
+                            <!--<span>Ваша корзина пуста</span>-->
+                            <div class="select_elements">
+                                <a href="" class="item-pic"><img src="assets/img/temp/goods.png"></a>
+                                <span class="delete"></span>
+                                <div class="text">
+                                    <a href="" class="">КОМПЛЕКТ BOOM MOON beige</a>
+                                    <span class="span-size">S/M</span>
+                                    <div class="сart_element_price">
+                                        <span class="price">1000 грн</span><span class="count"> × 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="select_elements">
+                                <a href="" class="item-pic"><img src="assets/img/temp/goods.png"></a>
+                                <span class="delete"></span>
+                                <div class="text">
+                                    <a href="" class="">КОМПЛЕКТ BOOM MOON beige</a>
+                                    <span class="span-size">S/M</span>
+                                    <div class="сart_element_price">
+                                        <span class="price">1000 грн</span><span class="count"> × 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="select_elements">
+                                <a href="" class="item-pic"><img src="assets/img/temp/goods.png"></a>
+                                <span class="delete"></span>
+                                <div class="text">
+                                    <a href="" class="">КОМПЛЕКТ BOOM MOON beige</a>
+                                    <span class="span-size">S/M</span>
+                                    <div class="сart_element_price">
+                                        <span class="price">1000 грн</span><span class="count"> × 2</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="horizontal-line">
+                                <hr>
+                            </div>
+
+                            <div class="summary-price">
+                                <span>СУММА ПОКУПКИ</span>
+                                <span class="span-summary-price">6000 грн</span>
+                            </div>
+
+                            <div class="button-wrapper">
+                                <a href="#" class="cart-button"><span>Оформить заказ</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div class="slider-wr">
+                <div class="front" style="background-image: url(assets/img/slider/slide1.jpg)"></div>
+                <div class="front" style="background-image: url(assets/img/slider/slide2.jpg)"></div>
+                <div class="front" style="background-image: url(assets/img/slider/slide3.jpg)"></div>
+            </div>
+
+            <div class="catalog">
+               <div class="product">
+                    <a href="#" class="product-img">
+                        <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                        <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                    </a>
+                    <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                    <p class="product-title">
+                        <a href="product_1.html">Комплект BELT abstraсt2</a>
+                    </p>
+                    <p class="product-price">600 грн</p>
+                    <a href="product_1.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                </div>
+                <div class="product">
+                    <a href="#" class="product-img">
+                        <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                        <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                    </a>
+                    <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                    <p class="product-title">
+                        <a href="product_2.html">Комплект BELT abstraсt2</a>
+                    </p>
+                    <p class="product-price">600 грн</p>
+                    <a href="product_2.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                </div>
+                 <div class="product">
+                    <a href="#" class="product-img">
+                        <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                        <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                    </a>
+                    <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                    <p class="product-title">
+                        <a href="product_2.html">Комплект BELT abstraсt2</a>
+                    </p>
+                    <p class="product-price">600 грн</p>
+                    <a href="product_2.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                </div>
+                 <div class="product">
+                    <a href="#" class="product-img">
+                        <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                        <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                    </a>
+                    <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                    <p class="product-title">
+                        <a href="product_2.html">Комплект BELT abstraсt2</a>
+                    </p>
+                    <p class="product-price">600 грн</p>
+                    <a href="product_2.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                </div>
+                 <div class="product">
+                    <a href="#" class="product-img">
+                        <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                        <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                    </a>
+                    <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                    <p class="product-title">
+                        <a href="product_2.html">Комплект BELT abstraсt2</a>
+                    </p>
+                    <p class="product-price">600 грн</p>
+                    <a href="product_2.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                </div>
+                 <div class="product">
+                    <a href="#" class="product-img">
+                        <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                        <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                    </a>
+                    <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                    <p class="product-title">
+                        <a href="product_2.html">Комплект BELT abstraсt2</a>
+                    </p>
+                    <p class="product-price">600 грн</p>
+                    <a href="product_2.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                </div>
+                 <div class="product">
+                    <a href="#" class="product-img">
+                        <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                        <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                    </a>
+                    <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                    <p class="product-title">
+                        <a href="product_2.html">Комплект BELT abstraсt2</a>
+                    </p>
+                    <p class="product-price">600 грн</p>
+                    <a href="product_1.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                </div>
+                 <div class="product">
+                    <a href="#" class="product-img">
+                        <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                        <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                    </a>
+                    <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                    <p class="product-title">
+                        <a href="product_2.html">Комплект BELT abstraсt2</a>
+                    </p>
+                    <p class="product-price">600 грн</p>
+                    <a href="product_2.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                </div>
+            </div>
+
+            <div class="info">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <div class="info_img">
+                    <img src="assets/img/temp/info.png">
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="content">
+                <nav>
+                    <a href="/" data-hover="ГЛАВНАЯ"><span>ГЛАВНАЯ</span></a>
+                    <a href="catalog.html" data-hover="КАТАЛОГ ТОВАРОВ"><span>КАТАЛОГ ТОВАРОВ</span></a>
+                    <a href="contacts.html" data-hover="КОНТАКТЫ"><span>КОНТАКТЫ</span></a>
+                </nav>
+                <div class="contacts_soc">
+                    <a href="tel:+3 (000) 000 00 00" class="contacts">+3 (000) 000 00 00 </a>
+                    <div class="soc">
+                        <a href="#"><img src="assets/img/facebook.png"></a>
+                        <a href="#"><img src="assets/img/instagram.png"></a>
+                    </div>
+                </div>
+
+        </div>
+    </footer>
+
+
+</body>
+</html>

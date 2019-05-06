@@ -1,0 +1,170 @@
+﻿@model IEnumerable<sirena.ViewModels.ProductVM>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>List of Products</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-default">Create New</a>
+</p>
+
+@if (Model != null && Model.Count() != 0)
+{
+    foreach (var item in Model)
+    {
+        <hr class="col-md-12">
+        <div class="col-md-12">
+            <div class="col-md-3">
+                <img src="@Html.DisplayFor(modelItem => item.MainPhoto)" alt="sirena" class="img-thumbnail" style="width:300px; height: 300px; background-position: 50% 50%;object-fit: contain;" />
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div style="display: flex;">
+                        @Html.ActionLink("Edit", "Edit", new { item.Id }, new { @class = "btn btn-warning", @style = "margin: 5px 5px 5px 5px" })
+                        @*@Html.ActionLink("Details", "Details", new { item.Id }, new { @class = "btn btn-primary", @style = "margin: 5px 5px 5px 5px" })*@
+                        <a id="@item.Id" class="btn btn-danger delete-prompt" style="margin: 5px 5px 5px 5px" href="/admin/@StringHelpers.CutController(nameof(ProductController))/@nameof(ProductController.Delete)/">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Name):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Article):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DisplayFor(modelItem => item.Article)
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Cost):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DisplayFor(modelItem => item.Cost)
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.IsDisabled):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DisplayFor(modelItem => item.IsDisabled)
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Description):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.CreatedOn):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @Html.DisplayFor(modelItem => item.CreatedOn)
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Categories):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @{if (item.Categories.Count == 0)
+                            {
+                                <span>None</span>
+                            }
+                            else
+                            {
+                                @foreach (var elem in item.Categories)
+                                {
+                                    <span>
+                                        @Html.DisplayFor(modelItem => elem.Name)
+                                    </span>
+                                    <br />
+
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Colors):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @{ if (item.Colors.Count == 0)
+                            {
+                                <span>None</span>
+                            }
+                            else
+                            {
+                                @foreach (var elem in item.Colors)
+                                {
+                                    <span>
+                                        @Html.DisplayFor(modelItem => elem.Name)
+                                    </span>
+                                    <br />
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin: 10px 0 10px 0">
+                    <div class="col-md-3">
+                        <strong>
+                            @Html.DisplayNameFor(model => model.Sizes):
+                        </strong>
+                    </div>
+                    <div class="col-md-9">
+                        @{ if (item.Sizes.Count == 0)
+                            {
+                                <span>None</span>
+                            }
+                            else
+                            {
+                                @foreach (var elem in item.Sizes)
+                                {
+                                    <span>
+                                        @Html.DisplayFor(modelItem => elem.Name)
+                                    </span>
+                                    <br />
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="col-md-12">
+    }
+}
+
+
+@Modal.DeleteModal()

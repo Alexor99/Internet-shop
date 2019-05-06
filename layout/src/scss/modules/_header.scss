@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  .content {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 30px 20px;
+
+    .logo {
+      display: block;
+      width:80px;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .cart {
+      position: relative;
+      
+      .icon {
+        cursor: pointer;
+      }
+
+      .num_goods{
+        position: absolute;
+        top: -8px;
+        left: 38px;
+        width: 18px;
+        height: 18px;
+        background-color: #ccc;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          font-size: 10px;
+        }
+      }
+
+      .cart_popup{
+        .state{
+          .button-wrapper{
+            .cart-button{
+              display: inline-block;
+              padding: 0 30px;
+              height: 35px;
+              line-height: 35px;
+              color: #fff;
+              text-transform: uppercase;
+              font-size: 13px;
+              font-weight: 400;
+              text-align: center;
+              background: #000;
+              position: relative;
+              overflow: hidden;
+
+              span {
+                position: relative;
+                z-index: 1;
+              }
+
+              &:before {
+                content: '';
+                position: absolute;
+                width: 250px;
+                height: 250px;
+                transform: rotate(-45deg) translate(50%, 50%);
+                background: $blue-green;
+                top: -70px;
+                left: 168px;
+                transition: transform 0.3s;
+              }
+
+              &:after {
+                content: '';
+                position: absolute;
+                width: 250px;
+                height: 250px;
+                transform: rotate(-45deg) translate(-50%, -50%);
+                background: red;
+                top: -147px;
+                left: -105px;
+                background: $blue-green;
+                transition: transform 0.3s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+nav {
+  margin: 0 50px 0 auto;
+  display: flex;
+  align-items: center;
+  a {
+    color: #000;
+    font-weight: 700;
+    position: relative;
+    height: 30px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+
+    span {
+      backface-visibility: hidden;
+      display: inline-block;
+      width: 100%;
+      transition: all 0.3s;
+    }
+
+    &:before {
+      content: attr(data-hover);
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transition: all 0.3s;
+      left: 0;
+      top: -100%;
+      display: flex;
+      align-items: center;
+      color: $blue-green;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      transition: all 0.3s;
+    }
+  }
+}
+
+.burger_popup {
+  display: none;
+}
+
+.burger-popup {
+
+}
+
+
+

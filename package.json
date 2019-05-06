@@ -1,0 +1,24 @@
+{
+  "name": "sirena_project",
+  "version": "1.0.0",
+  "description": "**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**",
+  "main": "",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://AlexUstynov@bitbucket.org/tempnamesoftwork/sirena_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/tempnamesoftwork/sirena_project#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "webpack": "^4.30.0"
+  }
+}

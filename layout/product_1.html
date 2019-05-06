@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sirena</title>
+    <script src="src/js/common.js"></script>
+</head>
+<body class="product-page">
+    <div id="product">
+   <div class="loader">
+        <div class="loader-background">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="content">
+            <a href="/" class="logo"><img src="assets/img/siren-logotip.svg" alt="siren"></a>
+            <nav>
+                <a href="/" data-hover="ГЛАВНАЯ"><span>ГЛАВНАЯ</span></a>
+                <a href="catalog.html" data-hover="КАТАЛОГ ТОВАРОВ"><span>КАТАЛОГ ТОВАРОВ</span></a>
+                <a href="contacts.html" data-hover="КОНТАКТЫ"><span>КОНТАКТЫ</span></a>
+            </nav>
+
+            <div class="cart_and_burger">
+
+                <div class="burger-menu">
+                    <div class="burger"><img src="assets/img/burger.png" alt=""></div>
+                    <div class="burger_popup">
+                        <a href="/" data-hover="ГЛАВНАЯ"><span>ГЛАВНАЯ</span></a>
+                        <a href="catalog.html" data-hover="КАТАЛОГ ТОВАРОВ"><span>КАТАЛОГ ТОВАРОВ</span></a>
+                        <a href="contacts.html" data-hover="КОНТАКТЫ"><span>КОНТАКТЫ</span></a>
+                    </div>
+                </div>
+                <div class="cart" :class="{'not-empty' : products.length}">
+                    <div class="num_goods" v-if="products.length >= 1">
+                        <span>{{products.length}}</span>
+                    </div>
+
+                    <div class="icon"><img src="assets/img/cart.png" alt=""></div>
+                    <div class="cart_popup">
+                        <div class="state">
+                            <div class="div-static-cart-is-empty" v-if="products.length < 1">
+                                <span>ВАША КОРЗИНА ПУСТА</span>
+                            </div>
+
+                            <div class="div-static-cart-isnot-empty" v-if="products.length >= 1" >
+                               <div class="select_elements" v-for="(product, index) in products" :data-id="product.id">
+                                    <a href="" class="item-pic"><img :src="product.image"></a>
+                                    <span class="delete" @click="removeItem(product)"></span>
+                                    <div class="text">
+                                       <a href="" class="product_name">{{product.title}}</a>
+                                       <span class="span-size">{{product.size}}</span>
+                                       <div class="сart_element_price">
+                                           <span class="price">{{product.price}} грн</span><span class="count"> × {{product.count}} </span>
+                                           <div class="buttons">
+                                               <div class="spinner-button inc-button-cart" @click="addOne(product)">+</div>
+                                               <div class="spinner-button dec-button-cart" @click="removeOne(product)">-</div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               <div class="horizontal-line">
+                                    <hr>
+                                </div>
+
+                                <div class="summary-price">
+                                    <span>СУММА ПОКУПКИ</span>
+                                    <span class="span-summary-price">{{this.totalSum}} грн</span>
+                                </div>
+
+                                <div class="button-wrapper">
+                                    <a href="#" class="cart-button"><span>Оформить заказ</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </header>
+        <main>
+            <div class="content">
+                <div class="product-wrapper">
+
+                    <p class="product-title">ОДЕЖДА ДЛЯ ФИТНЕСА И ЙОГИ</p>
+
+                    <div class="product-slider-wr" ref="image" data-mainimage="assets/img/temp/product.png">
+                        <div class="slider-for">
+                            <div class="img" style="background-image: url(assets/img/temp/product.png)"></div>
+                            <div class="img" style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                            <div class="img" style="background-image: url(assets/img/temp/product.png)"></div>
+                            <div class="img" style="background-image: url(assets/img/temp/goods.png)"></div>
+                            <div class="img" style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                            <div class="img" style="background-image: url(assets/img/temp/product.png)"></div>
+                            <div class="img" style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                            <div class="img" style="background-image: url(assets/img/temp/product.png)"></div>
+                        </div>
+                        <div class="slider-nav">
+                            <div><img src="assets/img/temp/product.png" class="main-img" alt="Sirena"></div>
+                            <div><img src="assets/img/temp/goods_hov.png" alt="Sirena"></div>
+                            <div><img src="assets/img/temp/product.png" alt="Sirena"></div>
+                            <div><img src="assets/img/temp/goods.png" alt="Sirena"></div>
+                            <div><img src="assets/img/temp/goods_hov.png" alt="Sirena"></div>
+                            <div><img src="assets/img/temp/product.png" alt="Sirena"></div>
+                            <div><img src="assets/img/temp/goods.png" alt="Sirena"></div>
+                            <div><img src="assets/img/temp/goods_hov.png" alt="Sirena"></div>
+                        </div>
+                    </div>
+
+                    <div class="product-desc" ref="productitem" id="BELT_1">
+                        <p class="product-name" ref="title">Комплект BELT abstraсt1</p>
+                        <div class="product-article">
+                            <span class="title-article">АРТИКУЛ: </span>
+                            <span class="id-article" ref="article">5000-0-0-0-0-1</span>
+                        </div>
+                        <p class="product-price"><span ref="price">1018</span> грн</p>
+                        <p class="product-size">РАЗМЕР</p>
+                        <div class="custom-select" style="width:200px;">
+                            <select ref="size"  @change="onChange()" v-model="keySize">
+                                <option value="0" selected>ВЫБРАТЬ ОПЦИЮ:</option>
+                                <option value="M/L">M/L</option>
+                                <option value="S/M">S/M</option>
+                                <option value="L/XL">L/XL</option>
+                                <option value="XL/XXL">XL/XXL</option>
+                                <option value="XXL/XXXL">XXL/XXXL</option>
+                            </select>
+                        </div>
+                        <div class="button-wrapper">
+                            <div class="count-goods">
+                                <input class="input-count" type="number"  value="1" min="1" max="100" ref="count"/>
+                                <div id="inc-button" class="spinner-button inc">+</div>
+                                <div id="dec-button" class="spinner-button dec">-</div>
+                            </div>
+                            <a href="#" class="goods-button btn-animate" @click.prevent="addToCart()"><span>Добавить в корзину</span></a>
+                        </div>
+
+                        <div class="product-info-wrapper">
+                            <p class="product-info-header">ОПИСАНИЕ</p>
+                            <div class="product-info">
+                                <p>
+                                    Стильные лосины с сеткой предназначены для интенсивных тренировок. Они отлично подойдут для занятий
+                                    в тренажерном зале, тренировок по фитнесу, аэробике, пилатесу или йоги. За счет специально
+                                    разработанного кроя, лосины подчеркивают округлость форм. Благодаря широкому поясу с завышенной
+                                    талией лосины не сползают с бёдер во время приседаний и наклонов. При изготовлении мы использовали
+                                    эластичный материал на основе Spandex, разработанный специально для пошива спортивной одежды. За
+                                    счет материала, лосины:
+                            </div>
+                        </div>
+                        <div class="product-table_size">
+                            <p>ТАБЛИЦЫ РАЗМЕРОВ</p>
+                            <!--<img src="assets/img/temp/product-table_size.png" alt="">-->
+                            <table>
+                                <tr>
+                                    <th>Обхват груди</th>
+                                    <th>Обхват талии</th>
+                                    <th>Обхват бёдер</th>
+                                    <th>Размер</th>
+                                </tr>
+                                <tr>
+                                    <td>86-95</td>
+                                    <td>65-70</td>
+                                    <td>88-95</td>
+                                    <td>S/M</td>
+                                </tr>
+                                <tr>
+                                    <td>86-95</td>
+                                    <td>65-70</td>
+                                    <td>88-95</td>
+                                    <td>S/M</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!---->
+
+                </div>
+
+                <p class="similar-goods">ПОХОЖИЕ ТОВАРЫ</p>
+                <hr>
+                <div class="catalog">
+                    <div class="product">
+                        <a href="#" class="product-img">
+                            <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                            <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                        </a>
+                        <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="catalog.html">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                        <p class="product-title">
+                            <a href="product.html">Комплект BELT abstraсt</a>
+                        </p>
+                        <p class="product-price">600 грн</p>
+                        <a href="product.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                    </div>
+                    <div class="product">
+                        <a href="#" class="product-img">
+                            <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                            <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                        </a>
+                        <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                        <p class="product-title">
+                            <a href="product.html">Комплект BELT abstraсt</a>
+                        </p>
+                        <p class="product-price">600 грн</p>
+                        <a href="product.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                    </div>
+                    <div class="product">
+                        <a href="#" class="product-img">
+                            <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                            <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                        </a>
+                        <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                        <p class="product-title">
+                            <a href="product.html">Комплект BELT abstraсt</a>
+                        </p>
+                        <p class="product-price">600 грн</p>
+                        <a href="product.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                    </div>
+                     <div class="product">
+                        <a href="#" class="product-img">
+                            <div class="front" style="background-image: url(assets/img/temp/goods.png)"></div>
+                            <div class="back"  style="background-image: url(assets/img/temp/goods_hov.png)"></div>
+                        </a>
+                        <p class="product-desc"><a href="">КОМПЛЕКТЫ</a>, <a href="">НОВАЯ КОЛЛЕКЦИЯ</a></p>
+                        <p class="product-title">
+                            <a href="product.html">Комплект BELT abstraсt</a>
+                        </p>
+                        <p class="product-price">600 грн</p>
+                        <a href="product.html" class="goods-button btn-animate"><span>Выбрать</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        <footer>
+            <div class="content">
+                <nav>
+                    <a href="/" data-hover="ГЛАВНАЯ"><span>ГЛАВНАЯ</span></a>
+                    <a href="catalog.html" data-hover="КАТАЛОГ ТОВАРОВ"><span>КАТАЛОГ ТОВАРОВ</span></a>
+                    <a href="contacts.html" data-hover="КОНТАКТЫ"><span>КОНТАКТЫ</span></a>
+                </nav>
+                <div class="contacts_soc">
+                    <a href="tel:+3 (000) 000 00 00" class="contacts">+3 (000) 000 00 00 </a>
+                    <div class="soc">
+                        <a href="#"><img src="assets/img/facebook.png"></a>
+                        <a href="#"><img src="assets/img/instagram.png"></a>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+
+        <div class="cart-modal modal" v-if="showModal == true">
+            <div class="modal-wr">
+                <span class="title">Товар добавлен в корзину</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+
+<script>
+    let products = [];
+
+    const product = new Vue({
+        el: '#product',
+        data() {
+            return {
+                products,
+                newItemSize: '',
+                totalSum: '',
+                keySize: '0',
+                showModal: false
+            }
+        },
+
+        watch: {
+            products() {
+                this.totalPrice()
+            },
+        },
+
+        methods: {
+            addToCart() {
+                let id = this.$refs.productitem.getAttribute('id');
+                let title = this.$refs.title.innerText;
+                let article = this.$refs.article.innerText;
+                let image = this.$refs.image.getAttribute('data-mainimage');
+                let price = this.$refs.price.innerText;
+                let size = this.keySize;
+                let count = this.$refs.count.value;
+
+                if(size !== '0') {
+
+                    if (this.products.length > 0) {
+                        for (let i = 0; i < this.products.length; i++) {
+                            if (this.products[i].id == id && this.products[i].size == size) {
+                                this.products[i].count = +this.products[i].count + 1;
+                                this.products[i].total = +this.products[i].price * +this.products[i].count
+                                return false
+                            } else {
+                                if (i == this.products.length - 1) {
+                                    this.products.push({
+                                        id: id,
+                                        title: title,
+                                        article: article,
+                                        image: image,
+                                        price: price,
+                                        size: size,
+                                        count: count,
+                                        total: +price * +count
+                                    });
+
+                                    return false
+                                }
+                            }
+                        }
+                    } else {
+                        this.products.push({
+                            id: id,
+                            title: title,
+                            article: article,
+                            image: image,
+                            price: price,
+                            size: size,
+                            count: count,
+                            total: +price * +count
+                        });
+                    }
+
+                    this.showModal = true;
+
+                    let _this = this;
+                    setTimeout(function () {
+                        _this.showModal = false;
+                    }, 500)
+                } else {
+                    this.$refs.size.classList.add("error");
+                }
+
+            },
+
+            removeItem(product) {
+                let deleteItem = confirm('Вы дествительно хотите удалить товар "' + product.title + '"');
+                if (deleteItem) {
+                    for (let i = 0; i < this.products.length; i++) {
+                        if (this.products[i].id == product.id && this.products[i].size == product.size) {
+                            let index = this.products.indexOf(this.products[i]);
+                            if (index > -1) {
+                                this.products.splice(index, 1);
+                            }
+                        }
+                    }
+                }
+            },
+
+            totalPrice() {
+                let sum = 0;
+                for (let i = 0; i < this.products.length; i++) {
+                    this.totalSum = sum += this.products[i].total;
+                }
+            },
+
+            addOne(product) {
+                for (let i = 0; i < this.products.length; i++) {
+                    if (this.products[i].id == product.id && this.products[i].size == product.size) {
+                        this.products[i].count = +this.products[i].count + 1;
+                        this.products[i].total = +this.products[i].price * +this.products[i].count;
+
+                        this.totalPrice()
+                    }
+                }
+            },
+
+            removeOne(product) {
+                for (let i = 0; i < this.products.length; i++) {
+                    if (this.products[i].id == product.id && this.products[i].size == product.size) {
+                        this.products[i].count = +this.products[i].count - 1;
+                        if(this.products[i].count > 0) {
+                            this.products[i].total = +this.products[i].price * +this.products[i].count;
+                            this.totalPrice()
+                        } else {
+                            let deleteItem = confirm('Вы дествительно хотите удалтить товар "' + product.title + '"');
+                            if (deleteItem) {
+                                let index = this.products.indexOf(this.products[i]);
+                                if (index > -1) {
+                                    this.products.splice(index, 1);
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            onChange() {
+                console.log(this.keySize)
+
+                if(this.keySize ==  '0') {
+                    this.$refs.size.classList.add("error");
+                } else {
+                    this.$refs.size.classList.remove("error");
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
